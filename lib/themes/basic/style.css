@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+body {
+	background: #eee;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	color: #222;
+	line-height: 1.85rem;
+	padding-bottom: 3.6rem;
+}
+
+.container {
+	max-width: 700px;
+	background: #fff;
+	margin: 0 auto;
+	box-shadow: 1px 1px 2px #dad7d7;
+	border-radius: 0.2rem;
+	padding: 2.8rem;
+	margin-top: 3.6rem;
+}
+
+.header {
+	margin-bottom: 2.1rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.name > h1 {
+	font-size: 2.9rem;
+	text-transform: uppercase;
+	margin-bottom: 0.3rem;
+	font-weight: 700;
+}
+.name > h3 {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.contact > label {
+	color: #555555;
+	font-weight: 300;
+}
+
+.about {
+	margin-bottom: 2.1rem;
+}
+
+.details {
+	line-height: 1.4rem;
+}
+.details .section {
+	margin-bottom: 2.8rem;
+}
+.details .section:last-of-type {
+	margin-bottom: 0;
+}
+.details .section__title {
+	letter-spacing: 2px;
+	color: #54afe4;
+	font-weight: bold;
+	margin-bottom: 0.7rem;
+	text-transform: uppercase;
+}
+.details .section__list-item {
+	margin-bottom: 2.8rem;
+}
+.details .section__list-item:last-of-type {
+	margin-bottom: 0;
+}
+.details .left,
+.details .right {
+	display: inline-block;
+}
+.details .left {
+	width: 60%;
+}
+.details .right {
+	width: 39%;
+}
+.details .name {
+	font-weight: bold;
+}
+.details a {
+	text-decoration: none;
+	color: #000;
+	font-style: italic;
+}
+.details a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+.details .skills__item {
+	margin-bottom: 0.7rem;
+}
+.details .skills__item .right input {
+	display: none;
+}
+.details .skills__item .right label {
+	display: inline-block;
+	width: 1.4rem;
+	height: 1.4rem;
+	background: #c3def3;
+	border-radius: 1.4rem;
+	margin-right: 0.2rem;
+}
+.details .skills__item .right input:checked + label {
+	background: #79a9ce;
+}

@@ -1,0 +1,96 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(name='viewport' content='width=device-width, initial-scale=1.0')
+	title #{name} - #{position}
+	link(rel='stylesheet' href='style.css')
+body
+	.container
+		.header
+			.name
+				h1= name
+				h3= position
+			.contact
+				if email
+					label Email: 
+					span= email
+				if phone
+					br
+					label Phone: 
+					span= phone
+		if introduction
+			.about= introduction
+		.details
+			if experience
+				.section
+					.section__title Experience
+					.section__list
+						each exp in experience
+							.section__list-item
+								.left
+									.name= exp.company
+									.addr= exp.address
+									.duration= exp.duration
+								.right
+									.name= exp.role
+									.desc!= exp.$description
+			if eduction
+				.section
+					.section__title Education
+					.section__list
+						each edu in eduction
+							.section__list-item
+								.left
+									.name= edu.institute
+									.addr= edu.address
+									.duration= edu.duration
+								.right
+									.name= edu.degree
+									.desc!= edu.$description
+			if projects
+				.section
+					.section__title Projects
+					.section__list
+						each project in projects
+							.section__list-item
+								.name= project.name
+								.text!= project.$description
+			.section
+				.section__title Skills
+				.skills
+					.skills__item
+						.left
+							.name
+								| Javascript
+						.right
+							input#ck1(type='checkbox' checked='')
+							label(for='ck1')
+							input#ck2(type='checkbox' checked='')
+							label(for='ck2')
+							input#ck3(type='checkbox')
+							label(for='ck3')
+							input#ck4(type='checkbox')
+							label(for='ck4')
+							input#ck5(type='checkbox')
+							label(for='ck5')
+					.skills__item
+						.left
+							.name
+								| CSS
+						.right
+							input#ck1(type='checkbox' checked='')
+							label(for='ck1')
+							input#ck2(type='checkbox' checked='')
+							label(for='ck2')
+							input#ck3(type='checkbox')
+							label(for='ck3')
+							input#ck4(type='checkbox')
+							label(for='ck4')
+							input#ck5(type='checkbox')
+							label(for='ck5')
+			.section
+			.section__title
+				| Interests
+			.section__list
+				.section__list-item
+				| Football, programming.

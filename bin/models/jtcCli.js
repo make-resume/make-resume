@@ -19,10 +19,18 @@ class JtcCli {
 			await this.jtc.validateDir();
 			await this.jtc.validateInfo();
 			await this.jtc.build();
+			Message.info("project: built");
 		} catch (e) {
 			Process.exitWithError(e.message);
 		}
-		Message.info("project: built");
+	}
+	async cloneTheme() {
+		try {
+			await this.jtc.cloneTheme();
+			Message.info("theme: cloned");
+		} catch (e) {
+			Process.exitWithError(e.message);
+		}
 	}
 }
 module.exports = JtcCli;

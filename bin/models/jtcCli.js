@@ -1,6 +1,7 @@
 const JsonToCV = require("./../../lib/models/jsonToCV");
 const Message = require("./message");
 const Process = require("./process");
+const path = require("path");
 
 class JtcCli {
 	constructor(opts) {
@@ -31,6 +32,13 @@ class JtcCli {
 		} catch (e) {
 			Process.exitWithError(e.message);
 		}
+	}
+	dirsToWatch() {
+		let paths = [
+			path.join(this.jtc.paths.dir, `**(!${this.jtc.names.output.dir})`),
+			this.jtc.paths.theme,
+		];
+		return paths;
 	}
 }
 module.exports = JtcCli;

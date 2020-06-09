@@ -31,12 +31,13 @@ program
 			});
 			await jtcCli.build();
 			if (cmd.watch) {
-				Message.info("project file(s): watching for changes ...");
-				chokidar.watch("./**(!dist)").on("change", async () => {
-					Message.info("project file(s): changed");
-					Message.info("project file(s): rebuilding ...");
-					await jtcCli.build();
-				});
+				Message.info("watching for changes ...");
+				chokidar
+					.watch(jtcCli.dirsToWatch())
+					.on("change", async (path, stats) => {
+						Message.info("project file(s): changed. rebuilding ..");
+						await jtcCli.build();
+					});
 			}
 		})();
 	});

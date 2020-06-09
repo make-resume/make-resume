@@ -18,79 +18,52 @@ body
 					br
 					label Phone: 
 					span= phone
-		if introduction
-			.about= introduction
+		if $summery
+			.about!= $summery
 		.details
 			if experience
 				.section
-					.section__title Experience
-					.section__list
-						each exp in experience
-							.section__list-item
-								.left
-									.name= exp.company
+					.section__title= experience.title || "Experience"
+					.section__content
+						each exp in experience.list
+							.flex.justify-space-between
+								.col
+									.text-bold= exp.company
 									.addr= exp.address
 									.duration= exp.duration
-								.right
-									.name= exp.role
+								.col
+									.text-bold= exp.role
 									.desc!= exp.$description
 			if eduction
 				.section
-					.section__title Education
-					.section__list
-						each edu in eduction
-							.section__list-item
-								.left
-									.name= edu.institute
+					.section__title= eduction.title || "Education"
+					.section__content
+						each edu in eduction.list
+							.flex
+								.col
+									.text-bold= edu.institute
 									.addr= edu.address
 									.duration= edu.duration
-								.right
-									.name= edu.degree
+								.col
+									.text-bold= edu.degree
 									.desc!= edu.$description
 			if projects
 				.section
-					.section__title Projects
-					.section__list
-						each project in projects
-							.section__list-item
-								.name= project.name
+					.section__title= projects.title || "Projects"
+					.section__content
+						each project in projects.list
+							.mb-1p5
+								.text-bold= project.name
 								.text!= project.$description
-			.section
-				.section__title Skills
-				.skills
-					.skills__item
-						.left
-							.name
-								| Javascript
-						.right
-							input#ck1(type='checkbox' checked='')
-							label(for='ck1')
-							input#ck2(type='checkbox' checked='')
-							label(for='ck2')
-							input#ck3(type='checkbox')
-							label(for='ck3')
-							input#ck4(type='checkbox')
-							label(for='ck4')
-							input#ck5(type='checkbox')
-							label(for='ck5')
-					.skills__item
-						.left
-							.name
-								| CSS
-						.right
-							input#ck1(type='checkbox' checked='')
-							label(for='ck1')
-							input#ck2(type='checkbox' checked='')
-							label(for='ck2')
-							input#ck3(type='checkbox')
-							label(for='ck3')
-							input#ck4(type='checkbox')
-							label(for='ck4')
-							input#ck5(type='checkbox')
-							label(for='ck5')
-			.section
-			.section__title
-				| Interests
-			.section__list
-				.section__list-item
-				| Football, programming.
+			if skills
+				.section
+					.section__title= skills.title || "Skills"
+					.section__content
+						each skill in skills.list
+							p.p-name #{skill.name}
+			if interests
+				.section
+					.section__title= interests.title || "Interests"
+					.section__content
+						each interest in interests.list
+							p.p-name= interest.name

@@ -1,31 +1,40 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,300,700");
 
-* {
+*,
+::after,
+::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
 html {
-	font-size: 14px;
+	font-size: 16px;
 }
 body {
 	background: #eee;
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
 	color: #222;
-	line-height: 1.85rem;
-	padding-bottom: 3.6rem;
+	line-height: 1.37;
+	padding: 3.6rem 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+	font-style: italic;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000;
 }
 
 .container {
-	max-width: 700px;
+	max-width: 800px;
 	background: #fff;
 	margin: 0 auto;
 	box-shadow: 1px 1px 2px #dad7d7;
 	border-radius: 0.2rem;
-	padding: 2.8rem;
-	margin-top: 3.6rem;
+	padding: 2rem;
 }
 
 .header {
@@ -37,8 +46,8 @@ body {
 .name > h1 {
 	font-size: 2.9rem;
 	text-transform: uppercase;
-	margin-bottom: 0.3rem;
 	font-weight: 700;
+	line-height: 1;
 }
 .name > h3 {
 	font-weight: bold;
@@ -54,9 +63,6 @@ body {
 	margin-bottom: 2.1rem;
 }
 
-.details {
-	line-height: 1.4rem;
-}
 .details .section {
 	margin-bottom: 2.8rem;
 }
@@ -70,48 +76,28 @@ body {
 	margin-bottom: 0.7rem;
 	text-transform: uppercase;
 }
-.details .section__list-item {
-	margin-bottom: 2.8rem;
-}
-.details .section__list-item:last-of-type {
-	margin-bottom: 0;
-}
-.details .left,
-.details .right {
+
+.p-name {
 	display: inline-block;
+	box-shadow: 1px 1px 1px 0px #cccccc;
+	padding: 0.1rem 0.3rem;
+	margin-right: 0.3rem;
 }
-.details .left {
-	width: 60%;
+
+.flex {
+	display: flex;
 }
-.details .right {
-	width: 39%;
+.justify-space-between {
+	justify-content: center;
 }
-.details .name {
+.col {
+	flex: 1;
+}
+
+.mb-1p5 {
+	margin-bottom: 1.5rem;
+}
+
+.text-bold {
 	font-weight: bold;
-}
-.details a {
-	text-decoration: none;
-	color: #000;
-	font-style: italic;
-}
-.details a:hover {
-	text-decoration: underline;
-	color: #000;
-}
-.details .skills__item {
-	margin-bottom: 0.7rem;
-}
-.details .skills__item .right input {
-	display: none;
-}
-.details .skills__item .right label {
-	display: inline-block;
-	width: 1.4rem;
-	height: 1.4rem;
-	background: #c3def3;
-	border-radius: 1.4rem;
-	margin-right: 0.2rem;
-}
-.details .skills__item .right input:checked + label {
-	background: #79a9ce;
 }

@@ -1,6 +1,6 @@
 # JSON ⇒ CV
 
-Create/Generate [CV/Resume](https://en.wikipedia.org/wiki/Curriculum_vitae) from a JSON file. It's extensible, flexible, and easy to use.
+Create/Generate a web page [CV/Resume](https://en.wikipedia.org/wiki/Curriculum_vitae) from a JSON file. It's extensible, flexible, and easy to use.
 
 ## Installation
 

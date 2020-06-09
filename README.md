@@ -11,13 +11,13 @@ As this package provides a `json-to-cv` cli tool, one should install it globally
 ## Usage
 
 1. create and `cd` into a directory (e.g. `my-cv`)
-2. create `person.json` file or copy it from any of theme's directory e.g. [person.json](https://raw.githubusercontent.com/Inambe/json-to-cv/master/lib/themes/basic/person.json)
+2. create `person.json` file or copy it from any of theme's directory (e.g. [person.json](https://raw.githubusercontent.com/Inambe/json-to-cv/master/lib/themes/basic/person.json))
 3. run `json-to-cv`
 4. your cv/resume should be in `dist` directory.
 
 ## Themes
 
-You can change the theme of built `cv` very easily using `--theme` or `-t` option to `build` sub-command.
+You can change the theme of `cv` very easily using `--theme` or `-t` option of `build` sub-command.
 
 **Example:**
 
@@ -48,7 +48,7 @@ _make sure you are in the same directory as `person.json`_
     - the cloned theme will then be used as a `local` theme and you can modify it any way you like.
 2. modify any theme file(s) (I used [pug](https://pugjs.org/api/getting-started.html) for template).
 3. run `json-to-cv build -t <theme-name>` to build cv/resume with cloned, now a `local`, theme.
-    - if you cloned `basic` theme you don't need `-t` or `--theme` option since it's default. only `json-to-cv` command would work too.
+    - if you cloned `basic` theme you don't need `-t` or `--theme` option since it's the default. only `json-to-cv` command would work too.
 
 ## Watch Files
 

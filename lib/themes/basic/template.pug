@@ -21,19 +21,6 @@ body
 		if $summery
 			.about!= $summery
 		.details
-			if experience
-				.section
-					.section__title= experience.title || "Experience"
-					.section__content
-						each exp in experience.list
-							.flex.justify-space-between
-								.col
-									.text-bold= exp.company
-									.addr= exp.address
-									.duration= exp.duration
-								.col
-									.text-bold= exp.role
-									.desc!= exp.$description
 			if eduction
 				.section
 					.section__title= eduction.title || "Education"
@@ -47,6 +34,19 @@ body
 								.col
 									.text-bold= edu.degree
 									.desc!= edu.$description
+			if experience
+				.section
+					.section__title= experience.title || "Experience"
+					.section__content
+						each exp in experience.list
+							.flex.justify-space-between
+								.col
+									.text-bold= exp.company
+									.addr= exp.address
+									.duration= exp.duration
+								.col
+									.text-bold= exp.role
+									.desc!= exp.$description
 			if projects
 				.section
 					.section__title= projects.title || "Projects"

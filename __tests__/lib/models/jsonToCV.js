@@ -9,6 +9,12 @@ const rimraf = util.promisify(_rimraf);
 
 const outputFixture = path.join(__dirname, "../../../fixture");
 
+beforeAll(() => {
+	if (!existsSync(outputFixture)) {
+		mkdirSync(outputFixture);
+	}
+});
+
 test("should select a built-in theme", () => {
 	const opts = { theme: "basic", dir: process.cwd() };
 	const jtc = new JsonToCv(opts);

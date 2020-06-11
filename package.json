@@ -1,6 +1,6 @@
 {
 	"name": "json-to-cv",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Create/Generate a web page CV/Resume from a JSON file. It's extensible, flexible, and easy to use.",
 	"main": "./lib/index.js",
 	"scripts": {

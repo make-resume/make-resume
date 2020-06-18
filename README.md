@@ -4,6 +4,7 @@ Create/Generate a web page [CV/Resume](https://en.wikipedia.org/wiki/Curriculum_
 
 [![npm](https://img.shields.io/npm/v/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
 [![npm](https://img.shields.io/npm/dw/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
+[![codecov](https://codecov.io/gh/Inambe/json-to-cv/branch/master/graph/badge.svg)](https://codecov.io/gh/Inambe/json-to-cv)
 
 ## Installation
 

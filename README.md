@@ -2,9 +2,12 @@
 
 Create/Generate a web page [CV/Resume](https://en.wikipedia.org/wiki/Curriculum_vitae) from a JSON file. It's extensible, flexible, and easy to use.
 
+[![npm](https://img.shields.io/npm/v/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
+[![npm](https://img.shields.io/npm/dw/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
+
 ## Installation
 
-As this package provides a `json-to-cv` cli tool, one should install it globally using below command:
+As this package provides a `json-to-cv` cli tool, one should install it globally using the command:
 
 `npm install -g json-to-cv`
 

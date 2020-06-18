@@ -34,5 +34,6 @@ jobs:
 
   post-publish:
     runs-on: ubuntu-latest
-    - uses: actions/checkout@v2
-    - uses: codecov/codecov-action@v1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: codecov/codecov-action@v1

@@ -4,7 +4,8 @@
 	"description": "Create/Generate a web page CV/Resume from a JSON file. It's extensible, flexible, and easy to use.",
 	"main": "./lib/index.js",
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"test:coverage": "npm test -- --coverage"
 	},
 	"bin": "./bin/index.js",
 	"keywords": [

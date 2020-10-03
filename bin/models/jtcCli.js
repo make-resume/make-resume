@@ -1,4 +1,4 @@
-const MakeResume = require("./../../lib/models/jsonToCV");
+const MakeResume = require("../../lib/models/makeResume");
 const Message = require("./message");
 const Process = require("./process");
 const path = require("path");

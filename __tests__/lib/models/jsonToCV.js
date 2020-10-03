@@ -3,7 +3,7 @@ const { existsSync, mkdirSync, copyFileSync } = require("fs");
 const { promisify } = require("util");
 const _rimraf = require("rimraf");
 
-const JsonToCv = require("../../../lib/models/jsonToCV");
+const MakeResume = require("../../../lib/models/makeResume");
 
 const rimraf = promisify(_rimraf);
 
@@ -20,7 +20,7 @@ beforeAll(() => {
 
 test("should select a built-in theme", () => {
 	const opts = { theme: "basic", dir: outputFixture };
-	const jtc = new JsonToCv(opts);
+	const jtc = new MakeResume(opts);
 	expect(jtc.paths.theme).toBe(
 		path.join(__dirname, "../../../lib/themes", opts.theme)
 	);
@@ -32,7 +32,7 @@ test("should throw if directory is not valid", async () => {
 		theme: "basic",
 		dir: path.join(outputFixture, "examples/1"),
 	};
-	const jtc = new JsonToCv(opts);
+	const jtc = new MakeResume(opts);
 	await expect(jtc.validateDir()).rejects.toThrow(/does not exist/);
 });
 
@@ -41,7 +41,7 @@ test("should throw if info is not valid", async () => {
 		theme: "basic",
 		dir: path.join(outputFixture, "examples/2"),
 	};
-	const jtc = new JsonToCv(opts);
+	const jtc = new MakeResume(opts);
 	await expect(jtc.validateDir()).resolves.toBeUndefined();
 	await expect(jtc.validateInfo()).rejects.toThrow();
 });
@@ -53,7 +53,7 @@ test("should build the project", async () => {
 		theme: "basic",
 		dir: dir,
 	};
-	const jtc = new JsonToCv(opts);
+	const jtc = new MakeResume(opts);
 	await expect(jtc.validateDir()).resolves.toBeUndefined();
 	await expect(jtc.validateInfo()).resolves.toBeUndefined();
 	await expect(jtc.build()).resolves.toBeUndefined();
@@ -69,7 +69,7 @@ describe("theme cloning", () => {
 			theme: theme,
 			dir: outputFixture,
 		};
-		const jtc = new JsonToCv(opts);
+		const jtc = new MakeResume(opts);
 		await jtc.cloneTheme();
 		expect(existsSync(localThemePath)).toBe(true);
 	});
@@ -79,7 +79,7 @@ describe("theme cloning", () => {
 			theme: theme,
 			dir: outputFixture,
 		};
-		const jtc = new JsonToCv(opts);
+		const jtc = new MakeResume(opts);
 		expect(jtc.paths.theme).toBe(localThemePath);
 	});
 

@@ -20,11 +20,11 @@ beforeAll(() => {
 
 test("should select a built-in theme", () => {
 	const opts = { theme: "basic", dir: outputFixture };
-	const jtc = new MakeResume(opts);
-	expect(jtc.paths.theme).toBe(
+	const mr = new MakeResume(opts);
+	expect(mr.paths.theme).toBe(
 		path.join(__dirname, "../../../lib/themes", opts.theme)
 	);
-	expect(jtc.themeOrigin).toBe("built-in");
+	expect(mr.themeOrigin).toBe("built-in");
 });
 
 test("should throw if directory is not valid", async () => {
@@ -32,8 +32,8 @@ test("should throw if directory is not valid", async () => {
 		theme: "basic",
 		dir: path.join(outputFixture, "examples/1"),
 	};
-	const jtc = new MakeResume(opts);
-	await expect(jtc.validateDir()).rejects.toThrow(/does not exist/);
+	const mr = new MakeResume(opts);
+	await expect(mr.validateDir()).rejects.toThrow(/does not exist/);
 });
 
 test("should throw if info is not valid", async () => {
@@ -41,9 +41,9 @@ test("should throw if info is not valid", async () => {
 		theme: "basic",
 		dir: path.join(outputFixture, "examples/2"),
 	};
-	const jtc = new MakeResume(opts);
-	await expect(jtc.validateDir()).resolves.toBeUndefined();
-	await expect(jtc.validateInfo()).rejects.toThrow();
+	const mr = new MakeResume(opts);
+	await expect(mr.validateDir()).resolves.toBeUndefined();
+	await expect(mr.validateInfo()).rejects.toThrow();
 });
 
 test("should build the project", async () => {
@@ -53,10 +53,10 @@ test("should build the project", async () => {
 		theme: "basic",
 		dir: dir,
 	};
-	const jtc = new MakeResume(opts);
-	await expect(jtc.validateDir()).resolves.toBeUndefined();
-	await expect(jtc.validateInfo()).resolves.toBeUndefined();
-	await expect(jtc.build()).resolves.toBeUndefined();
+	const mr = new MakeResume(opts);
+	await expect(mr.validateDir()).resolves.toBeUndefined();
+	await expect(mr.validateInfo()).resolves.toBeUndefined();
+	await expect(mr.build()).resolves.toBeUndefined();
 	rimraf(path.join(dir, "**/*"));
 });
 
@@ -69,8 +69,8 @@ describe("theme cloning", () => {
 			theme: theme,
 			dir: outputFixture,
 		};
-		const jtc = new MakeResume(opts);
-		await jtc.cloneTheme();
+		const mr = new MakeResume(opts);
+		await mr.cloneTheme();
 		expect(existsSync(localThemePath)).toBe(true);
 	});
 
@@ -79,8 +79,8 @@ describe("theme cloning", () => {
 			theme: theme,
 			dir: outputFixture,
 		};
-		const jtc = new MakeResume(opts);
-		expect(jtc.paths.theme).toBe(localThemePath);
+		const mr = new MakeResume(opts);
+		expect(mr.paths.theme).toBe(localThemePath);
 	});
 
 	afterAll(async () => {

@@ -7,7 +7,7 @@ class MakeResumeCLI {
 	constructor(opts) {
 		this.opts = opts;
 		try {
-			this.jtc = new MakeResume({
+			this.mr = new MakeResume({
 				dir: this.opts.dir,
 				theme: this.opts.theme,
 			});
@@ -17,9 +17,9 @@ class MakeResumeCLI {
 	}
 	async build() {
 		try {
-			await this.jtc.validateDir();
-			await this.jtc.validateInfo();
-			await this.jtc.build();
+			await this.mr.validateDir();
+			await this.mr.validateInfo();
+			await this.mr.build();
 			Message.info("project: built");
 		} catch (e) {
 			Process.exitWithError(e.message);
@@ -27,7 +27,7 @@ class MakeResumeCLI {
 	}
 	async cloneTheme() {
 		try {
-			await this.jtc.cloneTheme();
+			await this.mr.cloneTheme();
 			Message.info("theme: cloned");
 		} catch (e) {
 			Process.exitWithError(e.message);
@@ -35,8 +35,8 @@ class MakeResumeCLI {
 	}
 	dirsToWatch() {
 		let paths = [
-			path.join(this.jtc.paths.dir, `**(!${this.jtc.names.output.dir})`),
-			this.jtc.paths.theme,
+			path.join(this.mr.paths.dir, `**(!${this.mr.names.output.dir})`),
+			this.mr.paths.theme,
 		];
 		return paths;
 	}

@@ -1,4 +1,4 @@
-const JsonToCV = require("./../../lib/models/jsonToCV");
+const MakeResume = require("./../../lib/models/jsonToCV");
 const Message = require("./message");
 const Process = require("./process");
 const path = require("path");
@@ -7,7 +7,7 @@ class JtcCli {
 	constructor(opts) {
 		this.opts = opts;
 		try {
-			this.jtc = new JsonToCV({
+			this.jtc = new MakeResume({
 				dir: this.opts.dir,
 				theme: this.opts.theme,
 			});

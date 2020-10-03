@@ -3,7 +3,7 @@ const Message = require("./message");
 const Process = require("./process");
 const path = require("path");
 
-class JtcCli {
+class MakeResumeCLI {
 	constructor(opts) {
 		this.opts = opts;
 		try {
@@ -41,4 +41,4 @@ class JtcCli {
 		return paths;
 	}
 }
-module.exports = JtcCli;
+module.exports = MakeResumeCLI;

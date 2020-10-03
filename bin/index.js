@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const Message = require("./models/message");
-const JtcCli = require("./models/jtcCli");
+const MakeResumeCLI = require("./models/jtcCli");
 const { program } = require("commander");
 const chokidar = require("chokidar");
 
@@ -10,7 +10,7 @@ program
 	.description("clone specified theme in current directory")
 	.action((theme) => {
 		(async () => {
-			const jtcCli = new JtcCli({
+			const jtcCli = new MakeResumeCLI({
 				dir: process.cwd(),
 				theme: theme,
 			});
@@ -25,7 +25,7 @@ program
 	.option("-w, --watch", "watch for file changes")
 	.action((cmd) => {
 		(async () => {
-			const jtcCli = new JtcCli({
+			const jtcCli = new MakeResumeCLI({
 				dir: process.cwd(),
 				theme: cmd.theme,
 			});

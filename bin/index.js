@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const Message = require("./models/message");
-const MakeResumeCLI = require("./models/jtcCli");
+const MakeResumeCLI = require("./models/makeResumeCLI");
 const { program } = require("commander");
 const chokidar = require("chokidar");
 
@@ -10,11 +10,11 @@ program
 	.description("clone specified theme in current directory")
 	.action((theme) => {
 		(async () => {
-			const jtcCli = new MakeResumeCLI({
+			const makeResumeCLI = new MakeResumeCLI({
 				dir: process.cwd(),
 				theme: theme,
 			});
-			await jtcCli.cloneTheme();
+			await makeResumeCLI.cloneTheme();
 		})();
 	});
 
@@ -25,18 +25,18 @@ program
 	.option("-w, --watch", "watch for file changes")
 	.action((cmd) => {
 		(async () => {
-			const jtcCli = new MakeResumeCLI({
+			const makeResumeCLI = new MakeResumeCLI({
 				dir: process.cwd(),
 				theme: cmd.theme,
 			});
-			await jtcCli.build();
+			await makeResumeCLI.build();
 			if (cmd.watch) {
 				Message.info("watching for changes ...");
 				chokidar
-					.watch(jtcCli.dirsToWatch())
+					.watch(makeResumeCLI.dirsToWatch())
 					.on("change", async (path, stats) => {
 						Message.info("project file(s): changed. rebuilding ..");
-						await jtcCli.build();
+						await makeResumeCLI.build();
 					});
 			}
 		})();

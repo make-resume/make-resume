@@ -21,7 +21,11 @@ program
 program
 	.command("build", { isDefault: true })
 	.description("build the cv")
-	.option("-t, --theme <type>", "name of the theme to use", "basic")
+	.option(
+		"-t, --theme <type>",
+		"name of the theme to use",
+		"make-resume-base"
+	)
 	.option("-w, --watch", "watch for file changes")
 	.option(
 		"-f, --file <file>",

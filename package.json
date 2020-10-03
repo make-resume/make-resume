@@ -27,6 +27,7 @@
 		"chokidar": "^3.4.0",
 		"commander": "^5.1.0",
 		"handlebars": "^4.7.6",
+		"make-resume-base": "^1.0.0",
 		"ncp": "^2.0.0",
 		"prettier": "^2.0.5",
 		"rimraf": "^3.0.2"

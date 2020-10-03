@@ -23,12 +23,14 @@ program
 	.description("build the cv")
 	.option("-t, --theme <type>", "name of the theme to use", "basic")
 	.option("-w, --watch", "watch for file changes")
+	.option(
+		"-f, --file <file>",
+		"info file name or relative path",
+		"resume.json"
+	)
 	.action((cmd) => {
 		(async () => {
-			const makeResumeCLI = new MakeResumeCLI({
-				dir: process.cwd(),
-				theme: cmd.theme,
-			});
+			const makeResumeCLI = new MakeResumeCLI(cmd);
 			await makeResumeCLI.build();
 			if (cmd.watch) {
 				Message.info("watching for changes ...");

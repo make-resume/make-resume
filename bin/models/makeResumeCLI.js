@@ -4,12 +4,13 @@ const Process = require("./process");
 const path = require("path");
 
 class MakeResumeCLI {
-	constructor(opts) {
-		this.opts = opts;
+	constructor(cmd) {
+		this.cmd = cmd;
 		try {
 			this.mr = new MakeResume({
-				dir: this.opts.dir,
-				theme: this.opts.theme,
+				dir: process.cwd(),
+				theme: this.cmd.theme,
+				infoFile: this.cmd.file,
 			});
 		} catch (e) {
 			Process.exitWithError(e.message);

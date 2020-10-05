@@ -1,7 +1,7 @@
 const MakeResume = require("../../lib/models/makeResume");
-const Message = require("./message");
 const Process = require("./process");
-const path = require("path");
+const BuildSuccess = require("./messages/buildSuccess");
+const CloneThemeSuccess = require("./messages/cloneThemeSuccess");
 
 class MakeResumeCLI {
 	constructor(cmd) {
@@ -21,7 +21,7 @@ class MakeResumeCLI {
 			await this.mr.validateDir();
 			await this.mr.validateInfo();
 			await this.mr.build();
-			Message.info("project: built");
+			new BuildSuccess(this.mr).show();
 		} catch (e) {
 			Process.exitWithError(e.message);
 		}
@@ -29,7 +29,7 @@ class MakeResumeCLI {
 	async cloneTheme() {
 		try {
 			await this.mr.cloneTheme();
-			Message.info("theme: cloned");
+			new CloneThemeSuccess(this.mr).show();
 		} catch (e) {
 			Process.exitWithError(e.message);
 		}

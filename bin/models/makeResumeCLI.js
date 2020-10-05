@@ -35,10 +35,7 @@ class MakeResumeCLI {
 		}
 	}
 	dirsToWatch() {
-		let paths = [
-			path.join(this.mr.paths.dir, `**(!${this.mr.names.output.dir})`),
-			this.mr.paths.theme,
-		];
+		let paths = [this.mr.paths.infoFile, this.mr.paths.theme];
 		return paths;
 	}
 }

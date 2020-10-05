@@ -1,67 +1,96 @@
-# JSON ⇒ CV
+# Make Resume
 
-Create/Generate a web page [CV/Resume](https://en.wikipedia.org/wiki/Curriculum_vitae) from a JSON file. It's extensible, flexible, and easy to use.
+Separate data from design and build beautiful Resumes.
 
-[![npm](https://img.shields.io/npm/v/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
-[![npm](https://img.shields.io/npm/dw/json-to-cv)](https://www.npmjs.com/package/json-to-cv)
-[![codecov](https://codecov.io/gh/Inambe/json-to-cv/branch/master/graph/badge.svg)](https://codecov.io/gh/Inambe/json-to-cv)
+[![npm](https://img.shields.io/npm/v/make-resume)](https://www.npmjs.com/package/make-resume)
+[![npm](https://img.shields.io/npm/dw/make-resume)](https://www.npmjs.com/package/make-resume)
+
+## Features/Highlights
+
+-   uses [JSON Resume](jsonresume.org) JSON schema
+-   make multiple resumes in a single directory by using CLI options
+-   make modifications to built-in and other themes; with ease!
 
 ## Installation
 
-As this package provides a `json-to-cv` cli tool, one should install it globally using the command:
+Since this package provides a `make-resume` CLI tool, one should install it globally using the command:
 
-`npm install -g json-to-cv`
+`npm install -g make-resume`
 
 ## Usage
 
-1. create and `cd` into a directory (e.g. `my-cv`)
-2. create `person.json` file or copy it from any of theme's directory (e.g. [person.json](https://raw.githubusercontent.com/Inambe/json-to-cv/master/lib/themes/basic/person.json))
-3. run `json-to-cv`
-4. your cv/resume should be in `dist` directory.
+1. create and `cd` into a directory (e.g. `my-resume`)
+2. create `resume.json` file and copy the schema from [JSON Resume](https://jsonresume.org/schema/)
+3. run `make-resume` (yes, with no options ‒ yet!)
+4. your Resume should be in the `dist` directory
 
 ## Themes
 
-You can change the theme of `cv` very easily using `--theme` or `-t` option of `build` sub-command.
+You can change the theme of Resume very easily using the `--theme` or `-t` option of `build` sub-command.
 
-**Example:**
+Example:
 
-`json-to-cv build --theme=<theme-name>`
+`make-resume build --theme=<theme-name>`
 
 _or_
 
-`json-to-cv build -t <theme-name>`
+`make-resume build -t <theme-name>`
 
-**How themes are chosen?**
+### What is `<theme-name>`?
 
-`json-to-cv` will first look for `<theme-name>` named directory in the current directory to use as a theme(these are called `local` themes), if not found, it'll look if there is any `built-in` theme named `<theme-name>`, if not found, it'll end with an error.
+`<theme-name>` is the package name of the theme in the case of `built-in-mod` and `local-mod` themes or directory name in the case of `local` themes. See **Theme Origins** below.
 
-_`built-in` themes are which come with `json-to-cv` package_
+Example:
 
-_`local` themes are which you develop as per your needs. It's also used when you modify any `built-in` theme_
+`make-resume build -t make-resume-base`
 
-_For now, there is only one, default, theme; `basic`. Any contributions to themes are welcome and appreciated._
+The above command will use the `make-resume-base` `built-in-mod` theme, which is a package installed with `make-resume`, to build the Resume. `make-resume-base` is also the default theme so running `make-resume` only would work same as the above example command.
 
-## Modify Theme
+### Theme Origins
 
-You can modify any `built-in` theme very easily using `clone-theme` sub-command.
+Make Resume can dynamically choose themes from different places/origins/locations.
 
-_make sure you are in the same directory as `person.json`_
+There are three possible origins of a theme right now:
 
-1. run `json-to-cv clone-theme <theme-name>` to clone `<theme-name>` `built-in` theme in current directory.
-    - e.g. `json-to-cv clone-theme basic` will create a `basic` named directory with all of its files.
+1. `built-in-mod` themes are packages installed with the `make-resume` package as dependencies
+
+    - these are available by default
+    - e.g. [`make-resume-base`](https://github.com/make-resume/make-resume-base)
+
+2. `local-mod` themes are packages installed in a directory using `npm install` or similar command
+
+    - you've to install these in a directory to use
+
+3. `local` themes are simply a folder containing theme files
+    - a `local` theme should be in the same directory as your `resume.json` file
+
+### How themes are chosen?
+
+`make-resume` will first look for `<theme-name>` directory in the current directory to use as a `local` theme, if not found, it'll look for `<theme-name>` package in the current directory, if not found, it'll look for `<theme-name>` package installed with `make-resume`, if not found, it'll end with an error.
+
+_`local` themes are ones which you modify as per your needs._
+
+### Modify theme
+
+You can modify any `built-in-mod` or `local-mod` theme very easily using the `clone-theme` sub-command.
+
+_make sure you are in the same directory as `resume.json`_
+
+1. run `make-resume clone-theme <theme-name>` to clone `<theme-name>` theme in current directory.
+    - e.g. `make-resume clone-theme make-resume-base` will create a `make-resume-base` named directory with all of its files in it.
     - the cloned theme will then be used as a `local` theme and you can modify it any way you like.
-2. modify any theme file(s) (I used [pug](https://pugjs.org/api/getting-started.html) for template).
-3. run `json-to-cv build -t <theme-name>` to build cv/resume with cloned, now a `local`, theme.
-    - if you cloned `basic` theme you don't need `-t` or `--theme` option since it's the default. only `json-to-cv` command would work too.
+2. modify any theme file(s) (we used [Handlebars](https://handlebarsjs.com) for template).
+3. run `make-resume build -t <theme-name>` to build Resume with cloned, now a `local`, theme.
+    - if you'd cloned the `make-resume-base` theme you don't need the `-t` option since it's the default theme.
 
-## Watch Files
+## Watch files
 
-If you pass `-w` or `--watch` option to `build` sub-command, `json-to-cv` will continuously look for any changes in `person.json` or theme files(`local` or `built-in`) and will rebuild the cv/resume.
+If you pass the `-w` or `--watch` option to `build` sub-command, `make-resume` will continuously look for any changes in `resume.json` or theme files and will rebuild the Resume.
 
-**Example:**
+Example:
 
-`json-to-cv build -w`
+`make-resume build -w`
 
 _or_
 
-`json-to-cv build --watch`
+`make-resume build --watch`

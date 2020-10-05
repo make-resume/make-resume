@@ -1,7 +1,7 @@
 {
-	"name": "json-to-cv",
-	"version": "1.0.3",
-	"description": "Create/Generate a web page CV/Resume from a JSON file. It's extensible, flexible, and easy to use.",
+	"name": "make-resume",
+	"version": "1.0.0",
+	"description": "Separate data from design and build beautiful Resumes.",
 	"main": "./lib/index.js",
 	"scripts": {
 		"test": "jest",
@@ -9,17 +9,16 @@
 	},
 	"bin": "./bin/index.js",
 	"keywords": [
-		"cv",
 		"resume",
-		"json",
-		"json-to-cv",
-		"extensible"
+		"resume-builder",
+		"cv",
+		"cv-builder"
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Inambe/json-to-cv"
+		"url": "https://github.com/make-resume/make-resume"
 	},
-	"homepage": "https://github.com/Inambe/json-to-cv",
+	"homepage": "https://github.com/make-resume/make-resume",
 	"author": "Inam Ul Huq",
 	"license": "MIT",
 	"dependencies": {

@@ -94,3 +94,9 @@ Example:
 _or_
 
 `make-resume build --watch`
+
+## Theme Library
+
+There is only one theme available right now but I'm hoping for contribution from people. Let me know if you need information regarding that.
+
+[make-resume-base](http://github.com/make-resume/make-resume-base) (_built-in and default_)

@@ -24,7 +24,7 @@ program
 	.option(
 		"-t, --theme <type>",
 		"name of the theme to use",
-		"make-resume-base"
+		"make-resume-theme-base"
 	)
 	.option("-w, --watch", "watch for file changes")
 	.option(
@@ -32,11 +32,7 @@ program
 		"info file name or relative path",
 		"resume.json"
 	)
-	.option(
-		"--output-dir <dir>",
-		"directory to output the build",
-		"dist"
-	)
+	.option("--output-dir <dir>", "directory to output the build", "dist")
 	.action((cmd) => {
 		(async () => {
 			const makeResumeCLI = new MakeResumeCLI(cmd);

@@ -20,7 +20,7 @@ program
 
 program
 	.command("build", { isDefault: true })
-	.description("build the cv")
+	.description("build the resume")
 	.option(
 		"-t, --theme <type>",
 		"name of the theme to use",

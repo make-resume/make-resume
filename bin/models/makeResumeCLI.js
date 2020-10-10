@@ -11,6 +11,9 @@ class MakeResumeCLI {
 				dir: process.cwd(),
 				theme: this.cmd.theme,
 				infoFile: this.cmd.file,
+				output: {
+					dir: this.cmd.outputDir
+				}
 			});
 		} catch (e) {
 			Process.exitWithError(e.message);

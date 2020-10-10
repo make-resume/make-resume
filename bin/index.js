@@ -32,6 +32,11 @@ program
 		"info file name or relative path",
 		"resume.json"
 	)
+	.option(
+		"--output-dir <dir>",
+		"directory to output the build",
+		"dist"
+	)
 	.action((cmd) => {
 		(async () => {
 			const makeResumeCLI = new MakeResumeCLI(cmd);

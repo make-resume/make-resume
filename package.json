@@ -18,7 +18,7 @@
 		"type": "git",
 		"url": "https://github.com/make-resume/make-resume"
 	},
-	"homepage": "https://github.com/make-resume/make-resume",
+	"homepage": "https://make-resume.github.io",
 	"author": "Inam Ul Huq",
 	"license": "MIT",
 	"dependencies": {

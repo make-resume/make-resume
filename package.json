@@ -5,8 +5,7 @@
 	"main": "./lib/index.js",
 	"scripts": {
 		"test": "jest",
-		"test:coverage": "npm test -- --coverage",
-		"postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
+		"test:coverage": "npm test -- --coverage"
 	},
 	"bin": "./bin/index.js",
 	"keywords": [

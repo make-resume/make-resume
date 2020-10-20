@@ -27,6 +27,7 @@
 		"cli-table": "^0.3.1",
 		"commander": "^5.1.0",
 		"handlebars": "^4.7.6",
+		"handlebars-helpers": "^0.10.0",
 		"make-resume-theme-base": "^1.0.0",
 		"ncp": "^2.0.0",
 		"prettier": "^2.1.2",

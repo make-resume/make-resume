@@ -1,6 +1,6 @@
 {
 	"name": "make-resume",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Separate data from design and build beautiful Resumes.",
 	"main": "./lib/index.js",
 	"scripts": {

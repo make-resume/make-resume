@@ -11,8 +11,7 @@ program
 	.action((theme) => {
 		(async () => {
 			const makeResumeCLI = new MakeResumeCLI({
-				dir: process.cwd(),
-				theme: theme,
+				theme,
 			});
 			await makeResumeCLI.cloneTheme();
 		})();
@@ -21,18 +20,10 @@ program
 program
 	.command("build", { isDefault: true })
 	.description("build the resume")
-	.option(
-		"-t, --theme <type>",
-		"name of the theme to use",
-		"make-resume-theme-base"
-	)
 	.option("-w, --watch", "watch for file changes")
-	.option(
-		"-f, --file <file>",
-		"info file name or relative path",
-		"resume.json"
-	)
-	.option("--output-dir <dir>", "directory to output the build", "dist")
+	.option("-t, --theme <type>", "name of the theme to use")
+	.option("-f, --file <file>", "info file name or relative path")
+	.option("--output-dir <dir>", "directory to output the build")
 	.action((cmd) => {
 		(async () => {
 			const makeResumeCLI = new MakeResumeCLI(cmd);
@@ -42,7 +33,7 @@ program
 				chokidar
 					.watch(makeResumeCLI.dirsToWatch())
 					.on("change", async (path, stats) => {
-						Message.info("project file(s): changed. rebuilding ..");
+						Message.info("rebuilding ...");
 						await makeResumeCLI.build();
 					});
 			}

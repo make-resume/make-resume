@@ -1,22 +1,19 @@
 const MakeResume = require("../../lib/models/makeResume");
-const Process = require("./process");
-const BuildSuccess = require("./messages/buildSuccess");
-const CloneThemeSuccess = require("./messages/cloneThemeSuccess");
+const Configs = require("./messages/configs");
+const Message = require("./message");
 
 class MakeResumeCLI {
 	constructor(cmd) {
-		this.cmd = cmd;
 		try {
 			this.mr = new MakeResume({
-				dir: process.cwd(),
-				theme: this.cmd.theme,
-				infoFile: this.cmd.file,
-				output: {
-					dir: this.cmd.outputDir
-				}
+				theme: cmd.theme,
+				infoFile: cmd.file,
+				outputDir: cmd.outputDir,
 			});
+			this.mr.init();
+			new Configs(this.mr).show();
 		} catch (e) {
-			Process.exitWithError(e.message);
+			Message.error(e.message);
 		}
 	}
 	async build() {
@@ -24,17 +21,17 @@ class MakeResumeCLI {
 			await this.mr.validateDir();
 			await this.mr.validateInfo();
 			await this.mr.build();
-			new BuildSuccess(this.mr).show();
+			Message.success("the resume was built.");
 		} catch (e) {
-			Process.exitWithError(e.message);
+			Message.error(e.message);
 		}
 	}
 	async cloneTheme() {
 		try {
 			await this.mr.cloneTheme();
-			new CloneThemeSuccess(this.mr).show();
+			Message.success("theme cloned in current directory.");
 		} catch (e) {
-			Process.exitWithError(e.message);
+			Message.error(e.message);
 		}
 	}
 	dirsToWatch() {

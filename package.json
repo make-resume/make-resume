@@ -1,6 +1,6 @@
 {
 	"name": "make-resume",
-	"version": "1.2.1",
+	"version": "1.3.0",
 	"description": "Separate data from design and build beautiful Resumes.",
 	"main": "./lib/index.js",
 	"scripts": {
@@ -8,7 +8,9 @@
 		"test:coverage": "npm test -- --coverage",
 		"release": "release-it"
 	},
-	"bin": "./bin/index.js",
+	"bin": {
+		"make-resume": "bin/index.js"
+	},
 	"keywords": [
 		"resume",
 		"resume-builder",

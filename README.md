@@ -9,9 +9,11 @@ Make Resume is a tool to build a Resume yet keeping data separate from design. I
 
 ## Theme Library
 
-There is only one theme available right now but I'm hoping for contribution from people. Let me know if you need information regarding that.
+There are only two themes available right now but I'm hoping for contribution from people. Let me know if you need information regarding that.
 
-[make-resume-theme-base](http://github.com/make-resume/make-resume-theme-base) (_built-in and default_)
+[Base](http://github.com/make-resume/theme-base) (_built-in and default_)
+
+[Compact](http://github.com/make-resume/theme-compact) (_built-in_)
 
 ## Examples
 

@@ -1,6 +1,8 @@
 # Make Resume
 
-Make Resume is a tool to build a Resume yet keeping data separate from design. It helps track, compare, clone, and version your resume as it's just a file with some readable text on it and just one command away from a beautifully designed Resume.
+Make Resume is a tool to build a Resume/CV yet keeping data separate from design.
+
+Storing information in a readable-text format i.e. `JSON` helps track, compare, clone, and version your resume as it's just a file with some readable text on it and just one command away from a beautifully designed Resume.
 
 [![npm](https://img.shields.io/npm/v/make-resume)](https://www.npmjs.com/package/make-resume)
 [![npm](https://img.shields.io/npm/dw/make-resume)](https://www.npmjs.com/package/make-resume)

@@ -18,8 +18,8 @@ class MakeResumeCLI {
 	}
 	async build() {
 		try {
-			await this.mr.validateDir();
-			await this.mr.validateInfo();
+			await this.mr.validate();
+			await this.mr.loadInfo();
 			await this.mr.build();
 			Message.success("the resume was built.");
 		} catch (e) {

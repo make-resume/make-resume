@@ -33,7 +33,7 @@ test("should throw if directory is not valid", async () => {
 		dir: path.join(outputFixture, "examples/1"),
 	};
 	const mr = new MakeResume(opts);
-	await expect(mr.validateDir()).rejects.toThrow(/does not exist/);
+	await expect(mr.validate()).rejects.toThrow(/does not exist/);
 });
 
 test("should throw if info is not valid", async () => {
@@ -42,8 +42,8 @@ test("should throw if info is not valid", async () => {
 		dir: path.join(outputFixture, "examples/2"),
 	};
 	const mr = new MakeResume(opts);
-	await expect(mr.validateDir()).resolves.toBeUndefined();
-	await expect(mr.validateInfo()).rejects.toThrow();
+	await expect(mr.validate()).resolves.toBeUndefined();
+	await expect(mr.loadInfo()).rejects.toThrow();
 });
 
 test("should build the project", async () => {
@@ -54,8 +54,8 @@ test("should build the project", async () => {
 		dir: dir,
 	};
 	const mr = new MakeResume(opts);
-	await expect(mr.validateDir()).resolves.toBeUndefined();
-	await expect(mr.validateInfo()).resolves.toBeUndefined();
+	await expect(mr.validate()).resolves.toBeUndefined();
+	await expect(mr.loadInfo()).resolves.toBeUndefined();
 	await expect(mr.build()).resolves.toBeUndefined();
 	rimraf(path.join(dir, "**/*"));
 });

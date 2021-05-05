@@ -6,8 +6,8 @@ class Configs {
 		this.mr = mr;
 		this.config = infoTable();
 		this.config.push(
-			{ Theme: this.mr.names.theme },
-			{ "Theme Origin": this.mr.themeOrigin },
+			{ Theme: this.mr.theme.id },
+			{ "Theme Origin": this.mr.theme.origin },
 			{ "Info File": this.mr.paths.infoFile },
 			{ Output: this.mr.paths.output }
 		);

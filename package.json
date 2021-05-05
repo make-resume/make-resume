@@ -25,22 +25,22 @@
 	"author": "Inam Ul Huq",
 	"license": "MIT",
 	"dependencies": {
-		"chalk": "^4.1.0",
+		"chalk": "^4.1.1",
 		"chokidar": "^3.5.1",
 		"cli-table": "^0.3.4",
 		"commander": "^5.1.0",
 		"handlebars": "^4.7.6",
 		"handlebars-helpers": "^0.10.0",
 		"lodash": "^4.17.21",
-		"make-resume-theme-base": "^1.2.4",
-		"make-resume-theme-compact": "^1.0.1",
+		"make-resume-theme-base": "^1.2.8",
+		"make-resume-theme-compact": "^1.1.1",
 		"ncp": "^2.0.0",
 		"prettier": "^2.2.1",
 		"rimraf": "^3.0.2"
 	},
 	"devDependencies": {
-		"@types/jest": "^26.0.20",
+		"@types/jest": "^26.0.23",
 		"jest": "^26.6.3",
-		"release-it": "^14.4.0"
+		"release-it": "^14.6.1"
 	}
 }

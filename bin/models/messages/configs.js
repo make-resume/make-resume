@@ -8,7 +8,7 @@ class Configs {
 		this.config.push(
 			{ Theme: this.mr.theme.id },
 			{ "Theme Origin": this.mr.theme.origin },
-			{ "Info File": this.mr.paths.infoFile },
+			{ "Info file": this.mr.paths.infoFile },
 			{ Output: this.mr.paths.output }
 		);
 	}

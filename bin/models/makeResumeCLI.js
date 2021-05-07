@@ -4,39 +4,44 @@ const Message = require("./message");
 
 class MakeResumeCLI {
 	constructor(cmd) {
-		try {
-			this.mr = new MakeResume({
-				theme: cmd.theme,
-				infoFile: cmd.file,
-				outputDir: cmd.outputDir,
-			});
-			this.mr.init();
-			new Configs(this.mr).show();
-		} catch (e) {
-			Message.error(e.message);
-		}
+		this.mr = new MakeResume({
+			theme: cmd.theme,
+			infoFile: cmd.file,
+			outputDir: cmd.outputDir,
+		});
+		this.mr.init();
+		new Configs(this.mr).show();
 	}
+
 	async build() {
 		try {
-			await this.mr.validate();
-			await this.mr.loadInfo();
 			await this.mr.build();
 			Message.success("the resume was built.");
 		} catch (e) {
 			Message.error(e.message);
 		}
 	}
-	async cloneTheme() {
+
+	async rebuild() {
 		try {
-			await this.mr.cloneTheme();
-			Message.success("theme cloned in current directory.");
+			this.mr.init();
+			await this.build();
 		} catch (e) {
 			Message.error(e.message);
 		}
 	}
-	dirsToWatch() {
-		let paths = [this.mr.paths.infoFile, this.mr.paths.theme];
-		return paths;
+
+	toWatch() {
+		return [this.mr.paths.infoFile, this.mr.theme.path];
+	}
+
+	static async cloneTheme(theme) {
+		try {
+			await MakeResume.cloneTheme(theme);
+		} catch (e) {
+			Message.error(e.message);
+		}
 	}
 }
+
 module.exports = MakeResumeCLI;
